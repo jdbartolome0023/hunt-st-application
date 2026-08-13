@@ -176,15 +176,39 @@
     font-family: Iowan Old Style, "Palatino Linotype", Palatino, Georgia, serif;
     font-size: 1.32rem;
     font-weight: 600;
-    margin: 0 0 1.4rem;
+    margin: 0 0 1.6rem;
     text-wrap: balance;
     color: var(--ink);
   }
 
-  .answer p {
+  .lede {
     font-size: 1rem;
-    margin: 0 0 1.15rem;
-    max-width: 66ch;
+    color: var(--ink-soft);
+    margin: 0 0 1.8rem;
+    max-width: 62ch;
+  }
+
+  .channel {
+    margin-bottom: 1.9rem;
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--rule);
+  }
+
+  .channel:last-of-type { margin-bottom: 0; }
+
+  h3 {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 0.65rem;
+  }
+
+  .answer p {
+    font-size: 0.97rem;
+    margin: 0 0 0.85rem;
+    max-width: 62ch;
   }
 
   .answer p:last-of-type { margin-bottom: 0; }
@@ -256,13 +280,23 @@
     <div class="q-label">Question 1</div>
     <h2>Introduce yourself and walk us through your digital marketing experience</h2>
 
-    <p>I'm Josette, a digital marketing specialist based in the Philippines, currently managing accounts through WebProfits across Google Ads, Meta Ads, and SEO for Australia-based clients.</p>
+    <p class="lede">I'm Josette, a digital marketing specialist based in the Philippines, currently managing accounts through WebProfits across Google Ads, Meta Ads, and SEO for Australia-based clients.</p>
 
-    <p>On the Google Ads side, I manage a live account for an Australian fuel and heating retailer client, running Search, Shopping, and PMax campaigns. My day-to-day includes keyword and negative keyword management, budget allocation within an approved spend envelope, Shopping feed health such as product approvals and image or label fixes, campaign structure cleanup, and weekly and monthly reporting tied to actual profitability, not just platform metrics.</p>
+    <div class="channel">
+      <h3>Google Ads</h3>
+      <p>I manage a live account for an Australian fuel and heating retailer client, running Search, Shopping, and PMax. My day-to-day covers keyword and negative keyword management, budget allocation within an approved spend envelope, and Shopping feed health, things like product approvals and image or label fixes.</p>
+      <p>I also handle campaign structure cleanup and weekly and monthly reporting tied to actual profitability, not just platform metrics.</p>
+    </div>
 
-    <p>For Meta Ads, I run full-funnel campaigns for the same client, covering audience and creative structure, pixel and conversion tracking, and budget pacing. I recently led a tracking audit that uncovered a real discrepancy between Meta's reported ROAS and the client's actual store revenue, which I go into in more detail in the second question.</p>
+    <div class="channel">
+      <h3>Meta Ads</h3>
+      <p>I run full-funnel campaigns for the same client, covering audience and creative structure, pixel and conversion tracking, and budget pacing. I recently led a tracking audit that uncovered a real discrepancy between Meta's reported ROAS and the client's actual store revenue. I walk through that in the second question.</p>
+    </div>
 
-    <p>On SEO, I work across multiple client accounts through WebProfits, including tour operators and service businesses. That covers content strategy, on-page SEO, content briefs, keyword research, E-E-A-T audits, SEO SWOT analysis, and ongoing content series tied to real search demand data.</p>
+    <div class="channel">
+      <h3>SEO</h3>
+      <p>I work across multiple client accounts through WebProfits, including tour operators and service businesses. That covers content strategy, on-page SEO, content briefs, keyword research, E-E-A-T audits, SEO SWOT analysis, and ongoing content series tied to real search demand data.</p>
+    </div>
 
     <p>Across all of this, I work directly with tools like Google Search Console, GA4, keyword research platforms, and the Google and Meta APIs themselves for reporting and diagnostics, so I'm comfortable going past the ad platform's dashboard when something doesn't add up.</p>
 
@@ -275,13 +309,29 @@
     <div class="q-label">Question 2</div>
     <h2>A successful campaign or project: role, strategies, tools, and results</h2>
 
-    <p>I'll walk through one account relationship at WebProfits where I've driven results across all three channels: Google, Meta, and SEO.</p>
+    <p class="lede">I'll walk through one account relationship at WebProfits where I've driven results across all three channels: Google, Meta, and SEO.</p>
 
-    <p>Starting with Google Ads, I'm the sole person managing the account across Search, Shopping, and PMax for an Australian fuel and heating retailer client. On the research side, I use search term reports and direct account queries to catch negative keyword gaps early, along with product-level Shopping feed diagnostics to catch disapprovals before they cost visibility. I inherited an existing account, so setup meant restructuring ad groups around the client's actual product categories, adding phrase-match coverage, and setting budget rules that stay inside the client's approved spend envelope. Strategically, I prioritize spend toward what already converts, Shopping and PMax, while cleaning up wasted Search spend, and I treat the budget as one envelope to reallocate within rather than siloing it per campaign. Using the Google Ads platform and Merchant Center, the result has been a healthier account structure, resolved feed disapprovals that were limiting Shopping visibility, and more efficient spend inside the same budget.</p>
+    <div class="channel">
+      <h3>Google Ads</h3>
+      <p>I'm the sole person managing the account across Search, Shopping, and PMax for an Australian fuel and heating retailer client. <strong>Research:</strong> search term reports and direct account queries to catch negative keyword gaps early, plus product-level Shopping feed diagnostics to catch disapprovals before they cost visibility.</p>
+      <p><strong>Setup:</strong> I inherited an existing account, so this meant restructuring ad groups around the client's actual product categories, adding phrase-match coverage, and setting budget rules that stay inside the approved spend envelope. <strong>Strategy:</strong> prioritize spend toward what already converts, Shopping and PMax, while cleaning up wasted Search spend, and treat the budget as one envelope to reallocate within rather than siloing it per campaign.</p>
+      <p><strong>Result:</strong> a healthier account structure, resolved feed disapprovals that were limiting Shopping visibility, and more efficient spend inside the same budget.</p>
+    </div>
 
-    <p>On Meta Ads, for the same client, I have full ownership of the ads, tracking diagnostics, and client reporting. My research involves interest, behavior, and demographic research to define audiences for each funnel stage, plus audience-size estimation before committing budget to a new set. On the setup side, I built out the campaign, ad set, and creative structure end to end across top-of-funnel and bottom-of-funnel, including pixel and conversion event setup. Here's where it gets interesting: I found that Meta's platform-reported ROAS was badly overstated, roughly 211x, when the real number, once corrected, was closer to 7x. That came down to a mix of consent-gated pixel data and Meta over-attributing purchases compared to the client's actual order data. So my strategy was to cross-check Meta's reported purchases against the client's real order data instead of trusting the platform number, diagnose a dead purchase-tracking setup in analytics (a plugin removal had silently killed the account's only purchase event), and rebuild it through Google Tag Manager. I also rebuilt the client's reporting around a real profitability framework, mapping actual margin percentages by product category so reports show real profit instead of an inflated ROAS number. I told the client the truth in both directions: the platform overstates results, but the store's own tracking undercounts them too, so I gave them the honest range rather than a flattering headline number. Using Meta's Ads Manager, GA4, Google Tag Manager, and the store's order data, the client now has trustworthy reporting instead of a vanity metric, which sets up much better budget decisions going forward.</p>
+    <div class="channel">
+      <h3>Meta Ads</h3>
+      <p>For the same client, I have full ownership of the ads, tracking diagnostics, and client reporting. <strong>Research:</strong> interest, behavior, and demographic research to define audiences per funnel stage, plus audience-size estimation before committing budget to a new set. <strong>Setup:</strong> campaign, ad set, and creative structure built end to end across top-of-funnel and bottom-of-funnel, including pixel and conversion event setup.</p>
+      <p>Here's where it gets interesting: Meta's platform-reported ROAS was badly overstated, roughly 211x, when the real number, once corrected, was closer to 7x. That came down to a mix of consent-gated pixel data and Meta over-attributing purchases compared to the client's actual order data.</p>
+      <p><strong>Strategy:</strong> I cross-checked Meta's reported purchases against the client's real order data instead of trusting the platform number, diagnosed a dead purchase-tracking setup in analytics (a plugin removal had silently killed the account's only purchase event), and rebuilt it through Google Tag Manager. I also rebuilt reporting around a real profitability framework, mapping actual margin percentages by product category so reports show real profit instead of an inflated ROAS number. I told the client the truth in both directions: the platform overstates results, but the store's own tracking undercounts them too.</p>
+      <p><strong>Result:</strong> the client now has trustworthy reporting instead of a vanity metric, which sets up much better budget decisions going forward.</p>
+    </div>
 
-    <p>On SEO, also through WebProfits, I handle content strategy and on-page SEO across a client portfolio. My research process uses keyword research tools, competitor content-gap analysis, and People-Also-Ask and SERP research to find what's genuinely missing on a client's site before I write a brief. On the technical side, I run site-wide audits across every page in a content series, not just one-off pages, checking FAQ and Article schema, mobile breadcrumb behavior, duplicate headings, and alt text, along with E-E-A-T reviews of off-site reputation, reviews, and trust signals. I also factor in AI search, structuring content to be directly answerable by AI answer engines alongside traditional search, which I've applied on portfolio work like an AEO project for SharkNinja. Strategically, that means building recurring, template-driven content series grounded in real search demand rather than one-off pages. Using keyword research tools, Search Console, and on-page content audits, the result is a consistent, data-backed content pipeline instead of ad hoc pages, with every piece tied to actual search demand.</p>
+    <div class="channel">
+      <h3>SEO</h3>
+      <p>Also through WebProfits, I handle content strategy and on-page SEO across a client portfolio. <strong>Research:</strong> keyword research tools, competitor content-gap analysis, and People-Also-Ask and SERP research to find what's genuinely missing on a client's site before writing a brief.</p>
+      <p><strong>Technical SEO:</strong> site-wide audits across every page in a content series, not just one-off pages: FAQ and Article schema, mobile breadcrumb behavior, duplicate headings, alt text, plus E-E-A-T reviews of off-site reputation and trust signals. <strong>AI search:</strong> structuring content to be directly answerable by AI answer engines alongside traditional search, which I've applied on portfolio work like an AEO project for SharkNinja.</p>
+      <p><strong>Strategy:</strong> recurring, template-driven content series grounded in real search demand rather than one-off pages. <strong>Result:</strong> a consistent, data-backed content pipeline instead of ad hoc pages, with every piece tied to actual search demand.</p>
+    </div>
 
     <blockquote><p>Across all three, the pattern is the same. I don't trust the platform's headline number by default. I check it against real data, actual orders, real search performance, real feed status, before I decide what success actually looks like for the client.</p></blockquote>
   </section>
