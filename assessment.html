@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Assessment Response</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F5F6F4;
+    --surface: #FFFFFF;
+    --ink: #1C2420;
+    --muted: #5C6864;
+    --muted-2: #8A958F;
+    --border: #DCE2DD;
+    --accent: #2F6F5E;
+    --accent-ink: #1F4E42;
+    --accent-soft: #E7F0EB;
+    --shadow: rgba(28, 36, 32, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.75rem 6rem;
+  }
+
+  header.masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-bottom: 2.25rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1.doc-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-optical-sizing: auto;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+
+  .meta-row strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  section.question {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section.question:last-of-type {
+    border-bottom: none;
+  }
+
+  .q-number {
+    flex: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    padding-top: 0.3rem;
+    width: 2.4rem;
+  }
+
+  .q-body { flex: 1; min-width: 0; }
+
+  .q-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 0.3rem;
+  }
+
+  h2.q-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .scenario {
+    color: var(--muted);
+    font-size: 0.98rem;
+    max-width: 62ch;
+    margin: 0 0 1.25rem;
+  }
+
+  .stat-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .stat {
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    min-width: 5.5rem;
+  }
+
+  .stat .k {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .stat .v {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-ink);
+  }
+
+  .answer-block {
+    margin-top: 1.5rem;
+  }
+
+  .answer-block h3 {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+  }
+
+  .answer-block + .answer-block {
+    margin-top: 1.75rem;
+  }
+
+  ol.answer-list, ul.answer-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .answer-list li {
+    max-width: 64ch;
+  }
+
+  .answer-list li strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  p.flow {
+    max-width: 66ch;
+    margin: 0 0 0.9rem;
+  }
+
+  p.flow:last-child { margin-bottom: 0; }
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .callout .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted-2);
+  }
+
+  @media (max-width: 560px) {
+    section.question { gap: 0.9rem; }
+    .q-number { width: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <span class="eyebrow">Technical Assessment · Digital Marketing Specialist</span>
+    <h1 class="doc-title">Josette Bartolome: Assessment Response</h1>
+    <div class="meta-row">
+      <span>Prepared for <strong>Ninja Digital</strong> via Hunt St</span>
+      <span>20 August 2026</span>
+    </div>
+  </header>
+
+  <section class="question">
+    <div class="q-number">01</div>
+    <div class="q-body">
+      <div class="q-label">Google Ads</div>
+      <h2 class="q-title">Bathroom renovation client, low lead volume</h2>
+      <p class="scenario">A local bathroom renovation client is spending a fixed monthly budget against one core keyword, and the click volume isn't translating into leads.</p>
+
+      <div class="stat-strip">
+        <div class="stat"><span class="k">Budget</span><span class="v">$1,000/mo</span></div>
+        <div class="stat"><span class="k">Clicks</span><span class="v">120</span></div>
+        <div class="stat"><span class="k">Leads</span><span class="v">3</span></div>
+        <div class="stat"><span class="k">Conv. rate</span><span class="v">2.5%</span></div>
+        <div class="stat"><span class="k">Keyword</span><span class="v">bathroom renovations perth</span></div>
+      </div>
+
+      <div class="answer-block">
+        <h3>Issues I'd investigate</h3>
+        <ol class="answer-list">
+          <li>I'd check the search term report and match types first. In doing this, I want to confirm the budget isn't leaking into broad, low-intent, or out-of-area searches, because that kind of waste dilutes lead quality without ever showing up as an obvious problem in the top-line numbers.</li>
+          <li>I'd also look at the landing page experience. I want to see whether the ad is sending traffic to a generic homepage or to a dedicated renovation page with one clear path to request a quote, since a mismatched landing page can waste clicks the targeting already got right.</li>
+          <li>Then I'd check conversion tracking completeness, confirming both phone calls and form fills are being captured. I want to rule this out early, because under-tracking is one of the most common reasons a campaign looks worse than it actually is, and I don't want to recommend changes based on numbers that are already wrong.</li>
+        </ol>
+      </div>
+
+      <div class="answer-block">
+        <h3>Optimisation actions</h3>
+        <ol class="answer-list">
+          <li>I'd tighten targeting first, moving to phrase and exact match on the terms already proven to convert, and building a negative keyword list from the search term report. The reason is to stop the same $1,000 budget going to searches that were never going to convert, so it buys more relevant clicks instead. I'd monitor cost per click and conversion rate weekly for the first month to see whether the wasted spend is actually shifting into qualified traffic.</li>
+          <li>Next I'd rebuild the landing experience around one clear offer, a free quote, cut the form down to essential fields, and add trust signals like reviews, a project gallery, and licence or insurance details. I want to do this because even well-targeted clicks won't convert if the page doesn't make it easy and obvious to enquire. I'd track the conversion rate on that specific page over the following two to four weeks to see if it lifts.</li>
+          <li>Then I'd add call tracking, and once there's enough conversion volume, move from manual CPC to Maximize Conversions bidding. I want call tracking in place first because I need accurate lead numbers before letting an automated bidding strategy optimise off them. I'd check back in after three to four weeks of data, since Smart Bidding needs a learning period before its results are reliable to judge.</li>
+        </ol>
+      </div>
+
+      <div class="callout">
+        <span class="k">Expected result</span>
+        For a local trades category, tightening targeting and fixing the landing page typically lifts conversion rate from the 2–3% range into 5–8%. At the same spend, that would take this account from 3 leads to roughly 6–9 leads a month, before call tracking even surfaces leads that were already happening but going uncounted.
+      </div>
+
+      <div class="answer-block">
+        <h3>Other things I'd factor in</h3>
+        <ul class="answer-list">
+          <li>Ad copy and extensions: I'd review ad relevance and Quality Score, since weak ad copy or missing extensions like sitelinks and callouts can quietly inflate cost per click even when targeting is otherwise sound.</li>
+          <li>Budget adequacy: at roughly $8 average cost per click, $1,000 a month is a thin budget for a competitive term like this. I'd flag early whether the current goal is realistic at this spend, or whether budget needs to grow alongside the other fixes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="q-number">02</div>
+    <div class="q-body">
+      <div class="q-label">Meta Ads</div>
+      <h2 class="q-title">Strong reach and engagement, weak lead submissions</h2>
+      <p class="scenario">A Meta lead generation campaign is performing well on the metrics that are easiest to hit, and poorly on the one that matters.</p>
+
+      <div class="answer-block">
+        <h3>Likely causes</h3>
+        <ol class="answer-list">
+          <li>I'd look at form friction first. I want to check whether the Instant Form asks for more, or differently ordered, information than what the ad promised, because that mismatch is one of the most common reasons people engage with an ad but drop off before finishing the form.</li>
+          <li>I'd also consider engagement without intent. Broad targeting can earn likes and comments from people who aren't actually in-market, which is why reach and engagement look healthy while lead quality stays low. I want to check who's actually engaging against who the offer is meant for.</li>
+          <li>Then I'd check for a tracking gap, specifically whether the Pixel or Conversions API is reliably capturing submissions. I want to rule this out early, the same way I would on the Google Ads side, because the reported number might already be understating what's coming through.</li>
+        </ol>
+      </div>
+
+      <div class="answer-block">
+        <h3>Changes I'd make</h3>
+        <ol class="answer-list">
+          <li>I'd cut the form to three fields, name, phone, and suburb, and match the questions exactly to what the ad promised. The reason is to remove friction between someone deciding they're interested and actually submitting. I'd monitor form completion rate over the following couple of weeks to see if submissions lift.</li>
+          <li>I'd narrow the audience to a retargeting or lookalike group built from site visitors or past leads, rather than broad interest targeting. I want to do this because it trades reach for intent, and this campaign already has plenty of reach. I'd watch cost per lead and lead quality over the following few weeks to confirm the trade-off is worth it.</li>
+          <li>I'd audit the Pixel and Conversions API setup and reconcile Meta's reported leads against the CRM for the same date range. I want to do this before concluding the campaign itself is underperforming, because fixing a tracking gap costs nothing and could explain part of the problem on its own.</li>
+        </ol>
+      </div>
+
+      <div class="answer-block">
+        <h3>Other things I'd factor in</h3>
+        <ul class="answer-list">
+          <li>Placement quality: I'd check whether spend is spreading into Audience Network or other lower-tier placements, since that's a common source of cheap engagement that never turns into a real lead.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="q-number">03</div>
+    <div class="q-body">
+      <div class="q-label">SEO</div>
+      <h2 class="q-title">Stuck on page two for the core term</h2>
+      <p class="scenario">The site is ranking on page 2 for "bathroom renovations perth". That's close enough that the fix should be diagnostic, not a rebuild.</p>
+
+      <div class="answer-block">
+        <h3>First five actions</h3>
+        <ol class="answer-list">
+          <li>I'd start by auditing the ranking page against the current page 1 results, looking at content depth, structure, and what they cover that this page doesn't. I want to do this first because it tells me exactly how far off the page actually is, rather than guessing.</li>
+          <li>I'd confirm the page matches search intent, checking that it's a service or quote page and not a blog post or a gallery with no path to enquire. I want to rule this out early, because if the page type is wrong, no amount of on-page or link work will fix it.</li>
+          <li>I'd fix on-page fundamentals: the title tag, H1, meta description, and internal links into the page from related content. I want to do this because these are usually quick wins that can move a page from position 11 to 15 into single digits on their own.</li>
+          <li>I'd strengthen the Google Business Profile and local citation consistency. I want to do this because local pack visibility often moves faster than organic for a query like this, so it can bring in leads while the organic fix is still working.</li>
+          <li>I'd build a small number of relevant local links: supplier and trade association listings, local press, sponsorships. I want to keep this list small and relevant rather than broad, because for a page this close to page 1, a handful of the right links usually does more than a large volume of generic ones.</li>
+        </ol>
+      </div>
+
+      <div class="callout">
+        <span class="k">Priority, and why</span>
+        I'd start with the content and intent audit against page 1. If the page isn't yet the best answer to the query, links and citations won't move it, so I want to fix what's on the page first and layer authority signals on top of something worth ranking. I'd check rankings for this term weekly, since a page this close to page 1 can often move within two to four weeks of fixing the content and intent match.
+      </div>
+
+      <div class="answer-block">
+        <h3>Other things I'd factor in</h3>
+        <ul class="answer-list">
+          <li>Technical health: before assuming it's purely a content or authority gap, I'd rule out page speed, mobile usability, and indexability issues, since a technical blocker can hold a page on page 2 no matter how strong the content is.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="question">
+    <div class="q-number">04</div>
+    <div class="q-body">
+      <div class="q-label">Reporting &amp; Tracking</div>
+      <h2 class="q-title">15 enquiries, 8 recorded conversions</h2>
+      <p class="scenario">The client's count and the platform's count disagree. The job is to find out why before touching anything about the campaign itself.</p>
+
+      <div class="answer-block">
+        <h3>How I'd investigate</h3>
+        <p class="flow">Before touching tags or tracking, I'd first confirm all 15 client-reported enquiries are actually attributable to the Google Ads channel in the first place. Some may have come through organic, referral, or walk-in, and those were never going to show up as an Ads conversion no matter how clean the tracking is.</p>
+        <p class="flow">Once I've ruled that in, I'd pull the raw list from both sides for the same date range: the client's enquiries with date, time, and channel (phone, form, chat) and the conversions Google Ads recorded. Then I'd match them one by one rather than treating it as a single number to explain away.</p>
+        <p class="flow">Next I'd check what's actually configured as a conversion action. If phone calls aren't set up as a conversion at all, that alone could account for most of the gap.</p>
+        <p class="flow">Then I'd open Google Tag Manager in preview mode and step through the form submission end to end, confirming the conversion tag fires and lands correctly. A broken redirect or a JavaScript error will silently drop conversions without ever throwing an obvious error.</p>
+        <p class="flow">I'd cross-check GA4 events for the same period: a mismatch between GA4 and Ads for the same action usually points to a tracking issue rather than a genuine reporting gap. And if phone is a meaningful channel, I'd add call tracking so calls attribute back to campaign and keyword instead of sitting outside the picture entirely.</p>
+        <p class="flow">Finally, I'd rule out duplicates or spam submissions, and check whether the conversion action is set to count "every" submission versus "one" per click. A setting mismatch alone can produce a gap this size.</p>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Google Tag Manager (preview mode)</span>
+        <span class="tag">GA4 (realtime &amp; events)</span>
+        <span class="tag">Google Ads conversion diagnostics</span>
+        <span class="tag">Call tracking (CallRail / WhatConverts)</span>
+        <span class="tag">CRM / enquiry log as source of truth</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="flow" style="margin-bottom: 0.6rem;">Prepared by Josette Bartolome for the Ninja Digital Digital Marketing Specialist role, submitted via Hunt St.</p>
+    <p class="flow" style="margin-bottom: 0;">All figures referenced above are the scenario data supplied in the assessment brief. No real client account data, reporting, or other confidential information appears in this response.</p>
+  </footer>
+
+</div>
+</body>
+</html>
